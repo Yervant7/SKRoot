@@ -1,7 +1,7 @@
 ﻿#include "su.h"
 #include "su_log.h"
 #include "su_hide_path_utils.h"
-#include "kernel_root_kit/kernel_root_kit_command.h"
+#include "../kernel_root_kit/kernel_root_kit_command.h"
 #include <filesystem>
 
 namespace {
