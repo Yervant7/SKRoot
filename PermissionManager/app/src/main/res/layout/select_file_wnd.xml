@@ -54,7 +54,7 @@
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:hint="筛选..."/>
+                    android:hint="Sift..."/>
 
                 <!-- 清除按钮 -->
                 <TextView

@@ -168,7 +168,7 @@ Java_com_linux_permissionmanager_MainActivity_autoSuEnvInject(
         jstring targetProcessCmdline) {
     
     if(g_last_su_full_path.empty()) {
-        return env->NewStringUTF("【错误】请先安装部署su");
+        return env->NewStringUTF("[Error] Please install and deploy su first");
     }
     const char *str1 = env->GetStringUTFChars(rootKey, 0);
     string strRootKey= str1;
@@ -275,7 +275,7 @@ Java_com_linux_permissionmanager_MainActivity_parasitePrecheckApp(
         return env->NewStringUTF(sstr.str().c_str());
     }
     if (test_pid.size() == 0) {
-        sstr << "目标进程不存在" << std::endl;
+        sstr << "The target process does not exist" << std::endl;
         return env->NewStringUTF(sstr.str().c_str());
     }
 
@@ -284,13 +284,13 @@ Java_com_linux_permissionmanager_MainActivity_parasitePrecheckApp(
     if (err) {
         sstr << "parasite_precheck_app ret val:" << err << std::endl;
         if(err == -9903) {
-            sstr << "此目标APP为32位应用，无法寄生" << err << std::endl;
+            sstr << "This target APP is a 32-bit application and cannot be parasitized" << err << std::endl;
         }
         return env->NewStringUTF(sstr.str().c_str());
     }
 
     if (!so_path_list.size()) {
-        sstr << "目标APP无法寄生：无法检测到目标APP的JNI环境，您可尝试重启目标APP后再试" << std::endl;
+        sstr << "Destination APP cannot be parasitized: The JNI environment of the target app cannot be detected, you can restart the target app and try again" << std::endl;
         return env->NewStringUTF(sstr.str().c_str());
     }
 

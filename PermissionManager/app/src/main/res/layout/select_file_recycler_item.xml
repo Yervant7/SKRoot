@@ -30,7 +30,7 @@
 			android:id="@+id/select_file_desc"
 			android:layout_width = "match_parent"
 			android:layout_height="wrap_content"
-			android:text="文件大小:111Mb"/>
+			android:text="File size: 111Mb"/>
 
 	</LinearLayout>
 

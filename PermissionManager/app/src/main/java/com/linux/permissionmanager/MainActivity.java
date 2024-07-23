@@ -120,10 +120,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //2.复制su的路径到剪贴板
                     String suFullPath = getLastInstallSuFullPath();
                     appendConsoleMsg("lastInstallSuFullPath:" + suFullPath);
-                    showMsgDlg("温馨提示", 
-                            "安装部署su成功，su路径已复制到剪贴板。", null);
+                    showMsgDlg("Tips",
+                            "The installation and deployment su is successful, and the su path has been copied to the clipboard.", null);
                     copyEditText(suFullPath);
-                    appendConsoleMsg("安装部署su成功，su路径已复制到剪贴板");
+                    appendConsoleMsg("The installation and deployment su is successful, and the su path has been copied to the clipboard");
                 }
                 break;
             case R.id.su_env_inject_btn:
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             m_loadingDlg.setCancelable(false);
                         }
                         m_loadingDlg.setTitle("");
-                        m_loadingDlg.setMessage("请现在手动启动APP [" + appItem.getShowName(MainActivity.this) + "]");
+                        m_loadingDlg.setMessage("Please start the APP manually now [" + appItem.getShowName(MainActivity.this) + "]");
                         m_loadingDlg.show();
 
                         new Thread() {
@@ -150,8 +150,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         m_loadingDlg.cancel();
 
                                         if(autoSuEnvInjectRet.indexOf("autoSuEnvInject done.")!= -1) {
-                                            showMsgDlg("提示",
-                                                    "已经授予ROOT权限到APP [" + appItem.getShowName(MainActivity.this) + "]",
+                                            showMsgDlg("prompt",
+                                                    "ROOT ACCESS HAS BEEN GRANTED TO THE APP [" + appItem.getShowName(MainActivity.this) + "]",
                                                     appItem.getDrawable(MainActivity.this));
                                         }
 
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 appendConsoleMsg(uninstallSu(rootKey,suBasePath));
                 break;
             case R.id.implant_app_btn:
-                showMsgDlg("建议", "为实现APP的最佳隐蔽性，推荐将此工具寄生到能常驻后台的APP上", null);
+                showMsgDlg("suggestion", "In order to achieve the best concealment of the APP, it is recommended to parasitize this tool on the APP that can reside in the background", null);
 
                 Handler selectImplantAppCallback = new Handler() {
                     @Override
@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             m_loadingDlg.setCancelable(false);
                         }
                         m_loadingDlg.setTitle("");
-                        m_loadingDlg.setMessage("请现在手动启动APP [" + appItem.getShowName(MainActivity.this) + "]");
+                        m_loadingDlg.setMessage("Please start the APP manually now [" + appItem.getShowName(MainActivity.this) + "]");
                         m_loadingDlg.show();
                         new Thread() {
                             public void run() {
@@ -199,8 +199,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                 String parasiteImplantAppRet = parasiteImplantApp(rootKey, appItem.getPackageName(), fileItem.getFilePath());
                                                 appendConsoleMsg(parasiteImplantAppRet);
                                                 if(parasiteImplantAppRet.indexOf("parasiteImplantApp done.")!= -1) {
-                                                    showMsgDlg("提示",
-                                                            "已经寄生到APP [" + appItem.getShowName(MainActivity.this) + "]",
+                                                    showMsgDlg("prompt",
+                                                            "Already parasitic to the APP [" + appItem.getShowName(MainActivity.this) + "]",
                                                             appItem.getDrawable(MainActivity.this));
                                                 }
                                                 super.handleMessage(msg);
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.copy_info_btn:
                 EditText edit = findViewById(R.id.console_edit);
                 copyEditText(edit.getText().toString());
-                Toast.makeText(v.getContext(), "复制成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "The replication is successful", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.clean_info_btn:
                 cleanConsoleMsg();
@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 super.handleMessage(msg);
             }
         };
-        showInputDlg(rootKey,"请输入ROOT权限的KEY", inputCallback);
+        showInputDlg(rootKey,"ENTER THE ROOT KEY", inputCallback);
     }
 
     public void showUserInputRootCmdDlg(boolean isKernelCmd) {
@@ -264,7 +264,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
         
-        showInputDlg(lastInputCmd, isKernelCmd ? "输入ROOT命令" : "输入普通命令", inputCallback);
+        showInputDlg(lastInputCmd, isKernelCmd ? "Enter the ROOT command" : "Enter a normal command", inputCallback);
     }
 
     public void showInputDlg(String defaultText, String title, Handler confirmCallback) {
@@ -274,13 +274,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inputTxt.setSelection(defaultText.length(), 0);
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle(title).setIcon(android.R.drawable.ic_dialog_info).setView(inputTxt)
-                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
                 });
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Are you sure?", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String text = inputTxt.getText().toString();
                 Message  msg = new Message();
@@ -299,7 +299,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(icon != null) {
             builder.setIcon(icon);
         }
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Are you sure?", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
             }

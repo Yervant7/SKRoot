@@ -11,14 +11,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Super Kernel Root内核级完美隐藏ROOT演示"
+        android:text="Super Kernel Root KERNEL-LEVEL PERFECTLY HIDDEN ROOT DEMO"
         android:textSize="18dp" />
 
     <TextView
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="新一代SKRoot，挑战全网root检测手段，跟面具完全不同思路，摆脱面具被检测的弱点，完美隐藏root功能，全程不需要暂停SELinux，实现真正的SELinux  0%触碰，通用性强，通杀所有内核，不需要内核源码，直接patch内核，兼容安卓APP直接JNI调用，稳定、流畅、不闪退。"
+        android:text="The new generation of SKRoot, challenging the root detection method of the whole network, is completely different from the mask, getting rid of the weakness of the mask being detected, perfectly hiding the root function, no need to suspend SELinux in the whole process, realizing the real SELinux 0% touch, strong versatility, killing all kernels, no kernel source code is required, directly patching the kernel, compatible with Android APP direct JNI call, stable, smooth, no flashback."
         />
 
     <View
@@ -47,7 +47,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="菜单功能列表："
+                android:text="List of menu features: "
                 android:textColor="@color/black"
                 />
 
@@ -56,7 +56,7 @@
                 android:id="@+id/test_root_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1.测试ROOT权限"
+                android:text="1. TEST ROOT PERMISSIONS"
                 />
 
             <Button
@@ -64,7 +64,7 @@
                 android:id="@+id/run_root_cmd_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2.执行ROOT命令"
+                android:text="2. Execute the ROOT command"
                 />
 
             <Button
@@ -72,7 +72,7 @@
                 android:id="@+id/run_init_process_cmd_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.执行原生内核命令"
+                android:text="3. Execute native kernel commands"
                 />
 
 
@@ -81,7 +81,7 @@
                 android:id="@+id/su_env_install_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.安装部署su"
+                android:text="4. Install and deploy SU"
                 />
 
             <Button
@@ -89,7 +89,7 @@
                 android:id="@+id/su_env_inject_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5.注入su到指定进程"
+                android:text="5. Inject su into the specified process"
                 />
 
                 <Button
@@ -97,7 +97,7 @@
                 android:id="@+id/clean_su_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="6.完全卸载清理su"
+                android:text="6. Completely uninstall Cleanup SU"
                 />
 
                 <Button
@@ -105,7 +105,7 @@
                 android:id="@+id/implant_app_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="7.寄生到目标APP"
+                android:text="7. Parasitize to the target APP"
                 />
 
         </LinearLayout>
@@ -129,7 +129,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="输出信息:"
+                android:text="Output Information:"
                 android:textColor="@color/black"
                 />
 
@@ -143,14 +143,14 @@
                     android:id="@+id/copy_info_btn"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="复制"
+                    android:text="Copy"
                     />
                 <Button
                     android:id="@+id/clean_info_btn"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:text="清空"
+                    android:text="empty"
                     />
             </LinearLayout>
 

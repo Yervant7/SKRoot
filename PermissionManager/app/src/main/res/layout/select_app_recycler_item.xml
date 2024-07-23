@@ -36,7 +36,7 @@
 			android:layout_marginLeft="3dp"
 			android:layout_height="wrap_content"
 			android:minHeight="50dp"
-			android:text="[111] 维护正义"
+			android:text="[111] Upholding justice"
 			style="@style/MediumText"
 			android:gravity="center_vertical"
 			/>

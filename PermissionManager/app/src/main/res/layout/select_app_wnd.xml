@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
-                android:text="选择应用"
+                android:text="Select Apply"
                 style="@style/MediumText"
                 />
 
@@ -54,7 +54,7 @@
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:hint="筛选..."/>
+                    android:hint="Sift..."/>
 
                 <!-- 清除按钮 -->
                 <TextView
@@ -79,14 +79,14 @@
                     android:id="@+id/show_system_app_ckbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="系统应用"
+                    android:text="System Applications"
                     android:textColor="@color/white" />
 
                 <CheckBox
                     android:id="@+id/show_thirty_app_ckbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="第三方应用"
+                    android:text="Third-party apps"
                     android:checked="true"
                     android:textColor="@color/white" />
 
@@ -94,7 +94,7 @@
                     android:id="@+id/show_running_app_ckbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="正在运行"
+                    android:text="Running"
                     android:checked="true"
                     android:textColor="@color/white" />
             </LinearLayout>
