@@ -21,7 +21,7 @@ size_t patch_do_execve(const std::vector<char>& file_buf, const std::string& str
 	size_t do_execve_entry_hook_jump_back_addr = do_execve_entry_addr + 4;
 
 	std::string str_show_root_key_mem_byte = bytes_2_hex_str((const unsigned char*)str_root_key.c_str(), str_root_key.length());
-	std::cout << "#生成的ROOT密匙字节集：" << str_show_root_key_mem_byte.c_str() << std::endl << std::endl;
+	std::cout << "#Generated ROOT key byte set: " << str_show_root_key_mem_byte.c_str() << std::endl << std::endl;
 
 	vec_out_patch_bytes_data.push_back({ str_show_root_key_mem_byte, hook_func_start_addr });
 
@@ -214,12 +214,12 @@ int main(int argc, char* argv[]) {
 	++argv;
 	--argc;
 
-	std::cout << "本工具用于生成SKRoot ARM64 Linux内核ROOT提权代码 V3" << std::endl << std::endl;
+	std::cout << "This tool is used to generate SKRoot ARM64 Linux kernel ROOT privilege escalation code V3" << std::endl << std::endl;
 
 #ifdef _DEBUG
 #else
 	if (argc < 1) {
-		std::cout << "无输入文件" << std::endl;
+		std::cout << "No input file" << std::endl;
 		system("pause");
 		return 0;
 	}
@@ -337,12 +337,12 @@ int main(int argc, char* argv[]) {
 
 	std::string str_root_key;
 	size_t create_new_root_key = 0;
-	std::cout << std::endl << "请选择是否需要自动随机生成ROOT密匙（1需要；2不需要）：" << std::endl;
+	std::cout << std::endl << "Please select whether you need to automatically generate a random ROOT key\n(1 is required; 2 is not required): " << std::endl;
 	std::cin >> std::dec >> create_new_root_key;
 	if (create_new_root_key == 1) {
 		str_root_key = generate_random_root_key();
 	} else {
-		std::cout << "请输入ROOT密匙（48个字符的字符串，包含大小写和数字）：" << std::endl;
+		std::cout << "Please enter the ROOT key\n(a 48-character string containing uppercase, lowercase, and numbers): " << std::endl;
 		std::cin >> str_root_key;
 	}
 
@@ -382,22 +382,22 @@ int main(int argc, char* argv[]) {
 		next_hook_func_addr = patch_avc_denied(file_buf, next_hook_func_addr, sym.avc_denied, t_mode_name, v_cred, vec_patch_bytes_data);
 	}
 	if (next_hook_func_addr == 0) {
-		std::cout << "生成汇编代码失败！请检查输入的参数！" << std::endl;
+		std::cout << "Failed to generate assembly code! Please check the input parameters! " << std::endl;
 		system("pause");
 		return 0;
 	}
 
-	std::cout << "#获取ROOT权限的密匙：" << str_root_key.c_str() << std::endl << std::endl;
+	std::cout << "#Get the key for ROOT permission: " << str_root_key.c_str() << std::endl << std::endl;
 
 	size_t need_write_modify_in_file = 0;
-	std::cout << "#是否需要立即写入修改到文件？（1需要；2不需要）：" << std::endl;
+	std::cout << "#Do you need to write the changes to the file immediately? (1: Yes; 2: No): " << std::endl;
 	std::cin >> need_write_modify_in_file;
 	if (need_write_modify_in_file == 1) {
 		for (auto& item : vec_patch_bytes_data) {
 			std::shared_ptr<char> spData(new (std::nothrow) char[item.str_bytes.length() / 2], std::default_delete<char[]>());
 			hex2byte((uint8_t*)item.str_bytes.c_str(), (uint8_t*)spData.get());
 			if (!write_file_bytes(file_path, item.write_addr, spData.get(), item.str_bytes.length() / 2)) {
-				std::cout << "写入文件发生错误" << std::endl;
+				std::cout << "Error writing file" << std::endl;
 			}
 		}
 	}

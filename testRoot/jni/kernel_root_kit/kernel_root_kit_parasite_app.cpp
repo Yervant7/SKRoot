@@ -82,9 +82,9 @@ ssize_t parasite_precheck_app(const char* str_root_key, const char* target_pid_c
 				}
 			} else if(!exist_32bit) {
 				// check if it is a 32-bit application
-				if (path.find(arm32_key_folder) != std::string::npos) {
-					exist_32bit = true;
-				}
+                if (path.find("/" + std::string(arm32_key_folder) + "/") != std::string::npos) {
+                    exist_32bit = true;
+                }
 			}
 		}
 	}

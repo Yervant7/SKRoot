@@ -964,7 +964,7 @@ ssize_t safe_inject_process_env64_PATH_wrapper(const char* str_root_key, int tar
 		return out_err;
 	} else if(libc_path.empty()) {
 		out_err = -286;
-		return {};
+		return out_err;
 	}
 	ROOT_PRINTF("target_process_libc_so_path:%s\n", libc_path.c_str());
 
